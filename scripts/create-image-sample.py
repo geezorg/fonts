@@ -1,6 +1,7 @@
 import os
 from os import path
 import glob
+import sys
 
 import re
 import numpy as np
@@ -77,6 +78,7 @@ def createTextImage(fontFile, text, htmlFile, imagePath):
         savePath = CURR_DIR + imagePath + imageFile 
         img.save( savePath )
 
+        """
         img = Image.open( savePath )
         img.load()
         padding = [ -5, -5, 5, 5 ]
@@ -98,11 +100,12 @@ def createTextImage(fontFile, text, htmlFile, imagePath):
             print( "Skipping: ", fontName )
 
         linkPath = (imagePath+imageFile).replace( "/html/", "" )
-        print( '  <tr><td><u>' + fontName + '</u><br/><img src="' + linkPath + '"/></td></tr>', file=htmlFile )
+        # print( '  <tr><td><u>' + fontName + '</u><br/><img src="' + linkPath + '"/></td></tr>', file=htmlFile )
+        """
 
 
 def main():
-    htmlFile = openHTML( "html/index.html" )
+    # htmlFile = openHTML( "html/index.html" )
     # licenseType = "opensource"
     licenseType = "freetouse"
     # licenseType = "commercial"
@@ -110,12 +113,11 @@ def main():
     fontDir = CURR_DIR + "/fonts/" + licenseType + "/*.ttf"
     fonts    = sorted( glob.glob(fontDir) )
 
-    # for font in fonts:
-     #    print( font )
-      #   createTextImage( font, 'ሀለሐመሠረሰ\nሸቀቐበቨተቸ\nኀነኘአከኸወዐ\nዘዠየደጀገጘ\nጠጨጰጸፀፈፐ', htmlFile, "/html/images/fonts/"+licenseType+"/" )
-    createTextImage( CURR_DIR + '/fonts/opensource/AbbaGarima-Regular.ttf', 'ሀለሐመሠረሰ\nቀበተኀነአከወዐ\nዘየደገጠጸፀፈፐ', htmlFile, "/html/images/fonts/opensource/" )
+    # Ge'ez Only
+    # createTextImage( CURR_DIR + '/' + sys.argv[1], 'ሀለሐመሠረሰ\nቀበተኀነአከወዐ\nዘየደገጠጸፀፈፐ', None, "/" )
+    createTextImage( CURR_DIR + '/' + sys.argv[1], 'ሀለሐመሠረሰ\nሸቀቐበቨተቸ\nኀነኘአከኸወዐ\nዘዠየደጀገጘ\nጠጨጰጸፀፈፐ', None, "/" )
 
-    closeHTML( htmlFile )
+    # closeHTML( htmlFile )
 
 
 if __name__ == "__main__":
