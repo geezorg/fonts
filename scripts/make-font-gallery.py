@@ -19,7 +19,7 @@ Foundries = {
 
 def printTableHeader(htmlFile):
     print( '  <tr>\n    <th rowspan="2">Font Name</th><th rowspan="2">Details</th><th colspan="2">Ethiopic Unicode<br/>Completeness</th><th colspan="2">Modern Geʾez<br/>Completeness</th>\n  </tr>', file=htmlFile )
-    print( "  <tr>\n    <th># Missing</th><th>% Complete</th><th># Missing</th><th>% Complete</th>\n  </tr>", file=htmlFile)
+    print( "  <tr>\n    <th># Missing</th><th>% Unicode Complete</th><th># Missing</th><th>% MSG Complete</th>\n  </tr>", file=htmlFile)
 
 def openHTML(htmlFileName):
     htmlFile = open ( CURR_DIR + "/" + htmlFileName, 'w' )

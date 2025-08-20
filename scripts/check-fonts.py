@@ -38,7 +38,7 @@ extended_a = block_extended_a - empty_extended_a
 extended_b = block_extended_b - { 0x1E7E7, 0x1E7EC, 0x1E7EF }
 ethiopic   = basic | supplement | extended | extended_a | extended_b
 
-meen  = { 0x1207, 0x1247, 0x1287, 0x12AF, 0x12CF, 0x12EF, 0x130F } | set( range( 0x2D80, 0x2D93 ) )
+meen  = { 0x1207, 0x1247, 0x1287, 0x12AF, 0x12CF, 0x12EF, 0x130F, 0x1347 } | set( range( 0x2D80, 0x2D93 ) )
 bench = set( range( 0x2DA0, 0x2DDF ) )
 old_gurage = { 0x1381, 0x1382, 0x1385, 0x1386, 0x1389, 0x138A, 0x138D, 0x138E }
 archaic = { 0x1227, 0x1358, 0x1359, 0x135A }
@@ -62,7 +62,7 @@ def main():
     fonts    = sorted( glob.glob(font_dir) )
 
     outFile = open ( CURR_DIR + '/FontStats.tsv', 'w' )
-    print( "Font Name", "Missing Basic", "Missinb Supplement", "Missing Extended", "Missing Extended A", "Missing Extended B", "Total Missing", "Total",  "% Complete", "Missing MGS", "Total MGS", "% Complete", sep='\t', file=outFile)
+    print( "Font Name", "Missing Basic", "Missing Supplement", "Missing Extended", "Missing Extended A", "Missing Extended B", "Total Missing", "Total",  "% Complete", "Missing MGS", "Total MGS", "% Complete", sep='\t', file=outFile)
 
     for font_file in fonts:
         print( "Working on: ", font_file )
